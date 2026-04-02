@@ -1,0 +1,14 @@
+{
+  "name": "game-hall-client",
+  "version": "1.0.0",
+  "description": "Cocos Creator 3D Game Hall Client",
+  "main": "index.js",
+  "dependencies": {
+    "tsrpc-client": "^1.0.0",
+    "oops-framework": "^1.0.0",
+    "crypto-js": "^4.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "__type__": "cc.SceneAsset",
+    "_name": "HallScene",
+    "_objFlags": 0,
+    "_native": "",
+    "scene": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Scene",
+    "_name": "HallScene",
+    "_objFlags": 0,
+    "_parent": null,
+    "_children": [],
+    "_active": true,
+    "_components": [],
+    "_prefab": null,
+    "_isLocked": false,
+    "_guid": "hall-scene-guid"
+  }
+]

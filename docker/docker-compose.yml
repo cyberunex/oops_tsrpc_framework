@@ -1,0 +1,106 @@
+version: '3.8'
+
+services:
+  # MongoDB 分片集群 - 用于游戏资源、日志、高写入数据
+  mongodb:
+    image: mongo:6.0
+    container_name: game-mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: GamePlatform2024!
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./docker/scripts/mongo-init.sh:/docker-entrypoint-initdb.d/init.sh
+    networks:
+      - game-network
+    command: mongod --replSet rs0 --bind_ip_all
+
+  # MySQL - 用于用户账户、交易订单、复杂业务报表
+  mysql:
+    image: mysql:8.0
+    container_name: game-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: GamePlatform2024!
+      MYSQL_DATABASE: game_platform
+      MYSQL_USER: game_user
+      MYSQL_PASSWORD: GameUser2024!
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/scripts/mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - game-network
+    command: --default-authentication-plugin=mysql_native_password
+
+  # Redis - 用于缓存和会话管理
+  redis:
+    image: redis:7-alpine
+    container_name: game-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+      - ./docker/redis.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - game-network
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+  # Nginx - 负载均衡、API 网关、静态资源服务
+  nginx:
+    image: nginx:alpine
+    container_name: game-nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/ssl:/etc/nginx/ssl
+      - ../frontend/build:/usr/share/nginx/html
+    depends_on:
+      - backend
+    networks:
+      - game-network
+
+  # Node.js 后端服务
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: game-backend
+    restart: always
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: mongodb://admin:GamePlatform2024!@mongodb:27017/game_platform?authSource=admin
+      MYSQL_URI: mysql://game_user:GameUser2024!@mysql:3306/game_platform
+      REDIS_URI: redis://redis:6379
+      JWT_SECRET: YourSuperSecretJWTKey2024!ChangeInProduction
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../backend:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
+      - mysql
+      - redis
+    networks:
+      - game-network
+    command: npm run dev
+
+volumes:
+  mongodb_data:
+  mysql_data:
+  redis_data:
+
+networks:
+  game-network:
+    driver: bridge

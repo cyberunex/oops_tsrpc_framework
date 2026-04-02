@@ -1,0 +1,24 @@
+{
+  "projectName": "GameHall",
+  "id": "game-hall-3d",
+  "version": "1.0.0",
+  "scenes": [
+    {
+      "url": "db://assets/scenes/LoginScene.scene"
+    },
+    {
+      "url": "db://assets/scenes/HallScene.scene"
+    }
+  ],
+  "startScene": "db://assets/scenes/LoginScene.scene",
+  "assets": {
+    "mainBundleIsRemote": false,
+    "bundleConfig": {
+      "custom": {}
+    }
+  },
+  "scripts": {
+    "useDefineForClassFields": true,
+    "allowDeclareFiles": true
+  }
+}
