@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="siteTitle">企业大事记 - 企业网站</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="animated-bg min-vh-100 d-flex flex-column">
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-building fa-2x me-2"></i>
+                <span data-i18n="companyName">企业名称</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="navHome">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html" data-i18n="navProducts">产品/服务</a></li>
+                    <li class="nav-item"><a class="nav-link" href="activities.html" data-i18n="navActivities">专题活动</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="history.html" data-i18n="navHistory">企业大事记</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html" data-i18n="navFeedback">反馈招聘</a></li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="dropdown">
+                    <button class="btn glass-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end glass-effect">
+                        <li><a class="dropdown-item" href="#" data-lang="zh-CN">中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="en-US">English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="ja-JP">日本語</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1" style="margin-top: 76px;">
+        <section class="container my-4">
+            <ul class="nav nav-pills justify-content-center mb-4" id="historyTabs" role="tablist"></ul>
+            <div class="timeline" id="timelineContainer"></div>
+            <div id="paginationContainer" class="mt-4"></div>
+        </section>
+    </main>
+
+    <footer class="glass-footer py-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"><p class="mb-0" data-i18n="copyright">© 2024 企业名称。All rights reserved.</p></div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-decoration-none me-3"><i class="fab fa-weixin fa-lg"></i></a>
+                    <a href="#" class="text-decoration-none me-3"><i class="fab fa-weibo fa-lg"></i></a>
+                    <a href="#" class="text-decoration-none me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="#" class="text-decoration-none"><i class="fab fa-twitter fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <button class="btn btn-primary floating-btn glass-btn" type="button" data-bs-toggle="modal" data-bs-target="#chatModal"><i class="fas fa-comments"></i></button>
+        <button class="btn btn-secondary floating-btn glass-btn" type="button" data-action="toggle-theme"><i class="fas fa-moon" data-theme-icon></i></button>
+        <button class="btn btn-success floating-btn glass-btn" type="button" data-action="scroll-top" style="display: none;"><i class="fas fa-arrow-up"></i></button>
+    </div>
+
+    <div class="modal fade chat-modal" id="chatModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" data-i18n="chatTitle">联系客服</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" id="chatInput" placeholder="输入消息...">
+                        <button class="btn btn-primary" type="button" data-action="send-message"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const lang = localStorage.getItem('language') || 'zh-CN';
+        const data = await DataLoader.loadPageData('history', lang);
+        
+        if (data && data.categories) {
+            const historyTabs = document.getElementById('historyTabs');
+            historyTabs.innerHTML = data.categories.map((cat, index) => `
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link glass-pill ${index === 0 ? 'active' : ''}" 
+                            data-bs-toggle="pill" data-bs-target="#hist-cat-${cat.id}" 
+                            type="button" role="tab">
+                        <i class="${cat.icon} me-2"></i>${cat.name}
+                    </button>
+                </li>
+            `).join('');
+
+            const timelineContainer = document.getElementById('timelineContainer');
+            timelineContainer.innerHTML = data.categories.map((cat, catIndex) => `
+                <div class="tab-pane fade ${catIndex === 0 ? 'show active' : ''}" id="hist-cat-${cat.id}" role="tabpanel">
+                    ${cat.events.map((event, index) => {
+                        const isLeft = index % 2 === 0;
+                        let mediaContent = '';
+                        if (event.type === 'image' && event.media) {
+                            mediaContent = `<img src="${event.media}" class="img-fluid rounded" alt="${event.title}">`;
+                        } else if (event.type === 'gallery' && event.media) {
+                            mediaContent = `
+                                <div id="carousel-hist-${event.id}" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        ${event.media.map((img, i) => `<div class="carousel-item ${i===0?'active':''}`}"><img src="${img}" class="d-block w-100 rounded"></div>`).join('')}
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-hist-${event.id}" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-hist-${event.id}" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                                </div>`;
+                        } else if (event.type === 'video' && event.media) {
+                            mediaContent = `<video controls class="w-100 rounded"><source src="${event.media}" type="video/mp4"></video>`;
+                        } else if (event.type === 'audio' && event.media) {
+                            mediaContent = `<audio controls class="w-100"><source src="${event.media}" type="audio/mpeg"></audio>`;
+                        }
+                        return `
+                            <div class="timeline-item row ${isLeft ? 'justify-content-start' : 'justify-content-end'}">
+                                <div class="col-md-5 ${isLeft ? 'text-end' : 'text-start order-md-2'}">
+                                    <div class="card glass-card">
+                                        <div class="card-header">
+                                            <small><i class="far fa-user me-1"></i>${event.author} | <i class="far fa-calendar me-1"></i>${event.date}</small>
+                                            ${event.tags ? `<span class="badge bg-primary ms-2">${event.tags}</span>` : ''}
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">${event.title}</h5>
+                                            <p class="card-text">${event.content}</p>
+                                        </div>
+                                        ${mediaContent ? `<div class="card-footer">${mediaContent}</div>` : ''}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `).join('');
+        }
+    });
+    </script>
+</body>
+</html>

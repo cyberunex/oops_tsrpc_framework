@@ -1,0 +1,79 @@
+{
+    "siteTitle": "企业网站 - 首页",
+    "companyName": "企业名称",
+    "navHome": "首页",
+    "navProducts": "产品/服务",
+    "navActivities": "专题活动",
+    "navHistory": "企业大事记",
+    "navFeedback": "反馈招聘",
+    "banner1Title": "欢迎来到我们的网站",
+    "banner1Desc": "提供优质的产品和服务",
+    "banner2Title": "创新技术引领未来",
+    "banner2Desc": "致力于技术创新和发展",
+    "banner3Title": "专业服务值得信赖",
+    "banner3Desc": "为客户提供全方位的服务",
+    "aboutTitle": "企业简介",
+    "aboutDesc": "我们是一家专注于创新和发展的企业，致力于为客户提供高质量的产品和服务。多年来，我们始终坚持以客户为中心，不断提升技术水平和服务质量。",
+    "aboutMore": "了解更多关于我们...",
+    "featuresTitle": "产品特点/服务特点",
+    "newsTitle": "最近新闻",
+    "contactTitle": "联系方式",
+    "copyright": "© 2024 企业名称。All rights reserved.",
+    "chatTitle": "联系客服",
+    "features": [
+        {
+            "icon": "fas fa-rocket",
+            "title": "高效性能",
+            "description": "采用最新技术，确保系统运行高效稳定"
+        },
+        {
+            "icon": "fas fa-shield-alt",
+            "title": "安全可靠",
+            "description": "多重安全防护，保障数据安全可靠"
+        },
+        {
+            "icon": "fas fa-cogs",
+            "title": "灵活配置",
+            "description": "支持个性化定制，满足不同需求"
+        },
+        {
+            "icon": "fas fa-headset",
+            "title": "优质服务",
+            "description": "7x24 小时技术支持，随时为您服务"
+        }
+    ],
+    "news": [
+        {
+            "title": "公司获得行业创新大奖",
+            "date": "2024-01-15",
+            "summary": "我公司凭借卓越的技术创新能力，荣获本年度行业创新大奖..."
+        },
+        {
+            "title": "新产品发布会圆满成功",
+            "date": "2024-01-10",
+            "summary": "公司在北京成功举办了新产品发布会，吸引了众多行业精英..."
+        },
+        {
+            "title": "与知名企业达成战略合作",
+            "date": "2024-01-05",
+            "summary": "公司与多家知名企业签署战略合作协议，共同开拓市场..."
+        }
+    ],
+    "contact": [
+        {
+            "icon": "fas fa-phone",
+            "label": "联系电话",
+            "value": "400-123-4567"
+        },
+        {
+            "icon": "fas fa-envelope",
+            "label": "电子邮箱",
+            "value": "info@company.com"
+        },
+        {
+            "icon": "fas fa-map-marker-alt",
+            "label": "公司地址",
+            "value": "北京市朝阳区某某路 123 号"
+        }
+    ]
+}

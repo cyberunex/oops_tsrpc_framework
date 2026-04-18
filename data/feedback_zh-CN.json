@@ -1,0 +1,67 @@
+{
+    "siteTitle": "反馈招聘 - 企业网站",
+    "companyName": "企业名称",
+    "navHome": "首页",
+    "navProducts": "产品/服务",
+    "navActivities": "专题活动",
+    "navHistory": "企业大事记",
+    "navFeedback": "反馈招聘",
+    "copyright": "© 2024 企业名称。All rights reserved.",
+    "chatTitle": "联系客服",
+    "feedbackTitle": "留言反馈",
+    "jobsTitle": "招聘信息",
+    "nameLabel": "姓名",
+    "emailLabel": "邮箱",
+    "phoneLabel": "电话",
+    "messageLabel": "留言内容",
+    "submitBtn": "提交",
+    "applyBtn": "申请职位",
+    "salaryLabel": "薪资",
+    "locationLabel": "地点",
+    "typeLabel": "类型",
+    "requirementsLabel": "要求",
+    "responsibilitiesLabel": "职责",
+    "submitSuccess": "提交成功！我们会尽快回复您。",
+    "jobs": [
+        {
+            "id": "j1",
+            "title": "高级前端工程师",
+            "salary": "20-35K",
+            "location": "北京",
+            "type": "全职",
+            "posted": "2024-01-15",
+            "requirements": ["5 年以上前端开发经验", "精通 React/Vue 框架", "熟悉 TypeScript", "有良好的代码习惯"],
+            "responsibilities": "负责公司核心产品的前端开发，参与技术选型和架构设计，指导初级工程师成长。"
+        },
+        {
+            "id": "j2",
+            "title": "Java 后端工程师",
+            "salary": "18-30K",
+            "location": "北京",
+            "type": "全职",
+            "posted": "2024-01-12",
+            "requirements": ["3 年以上 Java 开发经验", "熟悉 Spring Boot/Cloud", "有微服务架构经验", "熟悉 MySQL/Redis"],
+            "responsibilities": "负责后端服务开发和优化，参与系统架构设计，保证系统稳定性和性能。"
+        },
+        {
+            "id": "j3",
+            "title": "产品经理",
+            "salary": "20-40K",
+            "location": "北京/上海",
+            "type": "全职",
+            "posted": "2024-01-10",
+            "requirements": ["5 年以上产品经验", "有 B 端产品经验", "优秀的沟通协调能力", "数据驱动思维"],
+            "responsibilities": "负责产品规划和设计，协调研发资源，推动产品迭代优化，对产品结果负责。"
+        },
+        {
+            "id": "j4",
+            "title": "UI/UX设计师",
+            "salary": "15-25K",
+            "location": "北京",
+            "type": "全职",
+            "posted": "2024-01-08",
+            "requirements": ["3 年以上设计经验", "精通 Figma/Sketch", "有完整项目经验", "良好的审美能力"],
+            "responsibilities": "负责产品界面设计和用户体验优化，参与产品设计讨论，输出高质量设计稿。"
+        }
+    ]
+}

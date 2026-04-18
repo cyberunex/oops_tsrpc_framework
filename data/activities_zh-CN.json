@@ -1,0 +1,79 @@
+{
+    "siteTitle": "专题活动 - 企业网站",
+    "companyName": "企业名称",
+    "navHome": "首页",
+    "navProducts": "产品/服务",
+    "navActivities": "专题活动",
+    "navHistory": "企业大事记",
+    "navFeedback": "反馈招聘",
+    "copyright": "© 2024 企业名称。All rights reserved.",
+    "chatTitle": "联系客服",
+    "viewDetailBtn": "查看详情",
+    "attachments": "附件",
+    "categories": [
+        {
+            "id": "conference",
+            "name": "会议活动",
+            "icon": "fas fa-users",
+            "activities": [
+                {
+                    "id": "a1",
+                    "title": "2024 年度技术峰会",
+                    "summary": "汇聚行业精英，探讨前沿技术发展趋势",
+                    "date": "2024-03-15",
+                    "image": "https://via.placeholder.com/400x250/23a6d5/ffffff?text=Conference",
+                    "content": "本次技术峰会邀请了多位行业专家，就人工智能、大数据、云计算等前沿技术进行深入交流和探讨。与会者超过 500 人，来自全国各地的企业代表参加了此次盛会。",
+                    "attachments": [
+                        {"name": "会议议程.pdf", "url": "#"},
+                        {"name": "演讲资料.zip", "url": "#"}
+                    ]
+                },
+                {
+                    "id": "a2",
+                    "title": "新产品发布会",
+                    "summary": "展示最新研发成果，开启市场新篇章",
+                    "date": "2024-02-20",
+                    "image": "https://via.placeholder.com/400x250/e73c7e/ffffff?text=Launch",
+                    "content": "公司隆重举办新产品发布会，正式推出新一代企业管理系统。新产品在性能、安全性、用户体验等方面都有显著提升。",
+                    "attachments": [
+                        {"name": "产品手册.pdf", "url": "#"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "training",
+            "name": "培训活动",
+            "icon": "fas fa-chalkboard-teacher",
+            "activities": [
+                {
+                    "id": "a3",
+                    "title": "技术培训营",
+                    "summary": "提升团队技术水平，培养专业人才",
+                    "date": "2024-01-10",
+                    "image": "https://via.placeholder.com/400x250/23d5ab/ffffff?text=Training",
+                    "content": "为期一周的技术培训营圆满结束，参与员工在实战项目中提升了技术能力，增强了团队协作精神。",
+                    "attachments": []
+                }
+            ]
+        },
+        {
+            "id": "social",
+            "name": "社交活动",
+            "icon": "fas fa-glass-cheers",
+            "activities": [
+                {
+                    "id": "a4",
+                    "title": "年终晚会",
+                    "summary": "欢庆新年，表彰优秀员工",
+                    "date": "2024-01-25",
+                    "image": "https://via.placeholder.com/400x250/ee7752/ffffff?text=Party",
+                    "content": "公司举办盛大的年终晚会，回顾过去一年的成绩，表彰优秀员工，展望新一年的发展目标。",
+                    "attachments": [
+                        {"name": "晚会照片.zip", "url": "#"}
+                    ]
+                }
+            ]
+        }
+    ]
+}

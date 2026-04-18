@@ -1,0 +1,79 @@
+{
+    "siteTitle": "企業ウェブサイト - ホーム",
+    "companyName": "会社名",
+    "navHome": "ホーム",
+    "navProducts": "製品/サービス",
+    "navActivities": "アクティビティ",
+    "navHistory": "沿革",
+    "navFeedback": "フィードバック/採用",
+    "banner1Title": "ウェブサイトへようこそ",
+    "banner1Desc": "高品質な製品とサービスを提供",
+    "banner2Title": "革新が未来をリード",
+    "banner2Desc": "技術革新に取り組む",
+    "banner3Title": "信頼できるプロフェッショナルサービス",
+    "banner3Desc": "お客様にフルサービスを提供",
+    "aboutTitle": "会社概要",
+    "aboutDesc": "私たちは革新と発展に注力する企業で、お客様に高品質な製品とサービスを提供することに専念しています。長年にわたり、お客様中心の理念を堅持し、技術レベルとサービス品質を継続的に向上させています。",
+    "aboutMore": "詳細を見る...",
+    "featuresTitle": "製品特徴/サービス特徴",
+    "newsTitle": "最新ニュース",
+    "contactTitle": "お問い合わせ",
+    "copyright": "© 2024 会社名。All rights reserved.",
+    "chatTitle": "カスタマーサポート",
+    "features": [
+        {
+            "icon": "fas fa-rocket",
+            "title": "高性能",
+            "description": "最新技術を採用し、効率的で安定した動作を保証"
+        },
+        {
+            "icon": "fas fa-shield-alt",
+            "title": "安全可靠",
+            "description": "多重セキュリティ保護でデータの安全を確保"
+        },
+        {
+            "icon": "fas fa-cogs",
+            "title": "柔軟な設定",
+            "description": "パーソナライゼーションに対応し、様々なニーズに応える"
+        },
+        {
+            "icon": "fas fa-headset",
+            "title": "優質サービス",
+            "description": "7x24 時間技術サポート、いつでもサービス提供"
+        }
+    ],
+    "news": [
+        {
+            "title": "業界イノベーション賞を受賞",
+            "date": "2024-01-15",
+            "summary": "優れた技術革新能力により、年間業界イノベーション賞を受賞..."
+        },
+        {
+            "title": "新製品発表会成功裏に開催",
+            "date": "2024-01-10",
+            "summary": "北京で新製品発表会を成功裏に開催し、多くの業界エリートを魅了..."
+        },
+        {
+            "title": "有名企業と戦略的パートナーシップ締結",
+            "date": "2024-01-05",
+            "summary": "複数の有名企業と戦略的協力契約を締結し、市場を共同開拓..."
+        }
+    ],
+    "contact": [
+        {
+            "icon": "fas fa-phone",
+            "label": "電話番号",
+            "value": "400-123-4567"
+        },
+        {
+            "icon": "fas fa-envelope",
+            "label": "メールアドレス",
+            "value": "info@company.com"
+        },
+        {
+            "icon": "fas fa-map-marker-alt",
+            "label": "住所",
+            "value": "北京市朝陽区某路 123 号"
+        }
+    ]
+}

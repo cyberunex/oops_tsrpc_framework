@@ -1,0 +1,111 @@
+{
+    "siteTitle": "产品/服务 - 企业网站",
+    "companyName": "企业名称",
+    "navHome": "首页",
+    "navProducts": "产品/服务",
+    "navActivities": "专题活动",
+    "navHistory": "企业大事记",
+    "navFeedback": "反馈招聘",
+    "copyright": "© 2024 企业名称。All rights reserved.",
+    "chatTitle": "联系客服",
+    "detailsBtn": "详情",
+    "categories": [
+        {
+            "id": "software",
+            "name": "软件产品",
+            "icon": "fas fa-laptop-code",
+            "products": [
+                {
+                    "id": "p1",
+                    "name": "企业管理系统",
+                    "image": "https://via.placeholder.com/200x150/23a6d5/ffffff?text=ERP",
+                    "description": "全面的企业管理解决方案，包括财务、人事、库存等模块",
+                    "link": "#",
+                    "gallery": [
+                        "https://via.placeholder.com/300x200/23a6d5/ffffff?text=Screen+1",
+                        "https://via.placeholder.com/300x200/e73c7e/ffffff?text=Screen+2",
+                        "https://via.placeholder.com/300x200/23d5ab/ffffff?text=Screen+3"
+                    ]
+                },
+                {
+                    "id": "p2",
+                    "name": "客户关系管理",
+                    "image": "https://via.placeholder.com/200x150/e73c7e/ffffff?text=CRM",
+                    "description": "智能 CRM 系统，帮助企业管理客户信息和销售流程",
+                    "link": "#",
+                    "gallery": [
+                        "https://via.placeholder.com/300x200/e73c7e/ffffff?text=CRM+1",
+                        "https://via.placeholder.com/300x200/ee7752/ffffff?text=CRM+2"
+                    ]
+                },
+                {
+                    "id": "p3",
+                    "name": "数据分析平台",
+                    "image": "https://via.placeholder.com/200x150/23d5ab/ffffff?text=Analytics",
+                    "description": "强大的数据分析工具，可视化展示业务数据",
+                    "link": "#",
+                    "gallery": [
+                        "https://via.placeholder.com/300x200/23d5ab/ffffff?text=DA+1",
+                        "https://via.placeholder.com/300x200/23a6d5/ffffff?text=DA+2"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "service",
+            "name": "技术服务",
+            "icon": "fas fa-headset",
+            "products": [
+                {
+                    "id": "s1",
+                    "name": "技术咨询",
+                    "image": "https://via.placeholder.com/200x150/ee7752/ffffff?text=Consulting",
+                    "description": "专业技术咨询服务，为企业提供技术规划和解决方案",
+                    "link": "#",
+                    "gallery": [
+                        "https://via.placeholder.com/300x200/ee7752/ffffff?text=TC+1"
+                    ]
+                },
+                {
+                    "id": "s2",
+                    "name": "系统集成",
+                    "image": "https://via.placeholder.com/200x150/23a6d5/ffffff?text=Integration",
+                    "description": "提供完整的系统集成服务，实现各系统无缝对接",
+                    "link": "#",
+                    "gallery": [
+                        "https://via.placeholder.com/300x200/23a6d5/ffffff?text=SI+1",
+                        "https://via.placeholder.com/300x200/e73c7e/ffffff?text=SI+2"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "cloud",
+            "name": "云服务",
+            "icon": "fas fa-cloud",
+            "products": [
+                {
+                    "id": "c1",
+                    "name": "云存储",
+                    "image": "https://via.placeholder.com/200x150/23d5ab/ffffff?text=Cloud+Storage",
+                    "description": "安全可靠的云存储服务，支持弹性扩容",
+                    "link": "#",
+                    "gallery": [
+                        "https://via.placeholder.com/300x200/23d5ab/ffffff?text=CS+1"
+                    ]
+                },
+                {
+                    "id": "c2",
+                    "name": "云计算",
+                    "image": "https://via.placeholder.com/200x150/e73c7e/ffffff?text=Cloud+Compute",
+                    "description": "高性能云计算服务，按需付费",
+                    "link": "#",
+                    "gallery": [
+                        "https://via.placeholder.com/300x200/e73c7e/ffffff?text=CC+1",
+                        "https://via.placeholder.com/300x200/23a6d5/ffffff?text=CC+2"
+                    ]
+                }
+            ]
+        }
+    ]
+}

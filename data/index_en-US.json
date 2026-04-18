@@ -1,0 +1,79 @@
+{
+    "siteTitle": "Enterprise Website - Home",
+    "companyName": "Company Name",
+    "navHome": "Home",
+    "navProducts": "Products/Services",
+    "navActivities": "Activities",
+    "navHistory": "History",
+    "navFeedback": "Feedback/Careers",
+    "banner1Title": "Welcome to Our Website",
+    "banner1Desc": "Providing quality products and services",
+    "banner2Title": "Innovation Leads the Future",
+    "banner2Desc": "Committed to technological innovation",
+    "banner3Title": "Professional Service You Can Trust",
+    "banner3Desc": "Full-service for customers",
+    "aboutTitle": "About Us",
+    "aboutDesc": "We are a company focused on innovation and development, committed to providing high-quality products and services to customers. Over the years, we have always adhered to customer-centric approach and continuously improved technical level and service quality.",
+    "aboutMore": "Learn more about us...",
+    "featuresTitle": "Features/Services",
+    "newsTitle": "Recent News",
+    "contactTitle": "Contact Us",
+    "copyright": "© 2024 Company Name. All rights reserved.",
+    "chatTitle": "Contact Support",
+    "features": [
+        {
+            "icon": "fas fa-rocket",
+            "title": "High Performance",
+            "description": "Using latest technology to ensure efficient and stable operation"
+        },
+        {
+            "icon": "fas fa-shield-alt",
+            "title": "Security & Reliability",
+            "description": "Multiple security protections to ensure data safety"
+        },
+        {
+            "icon": "fas fa-cogs",
+            "title": "Flexible Configuration",
+            "description": "Support personalization to meet different needs"
+        },
+        {
+            "icon": "fas fa-headset",
+            "title": "Quality Service",
+            "description": "7x24 technical support, always at your service"
+        }
+    ],
+    "news": [
+        {
+            "title": "Company Wins Industry Innovation Award",
+            "date": "2024-01-15",
+            "summary": "Our company won the annual industry innovation award for outstanding technical innovation capabilities..."
+        },
+        {
+            "title": "New Product Launch Successful",
+            "date": "2024-01-10",
+            "summary": "The company successfully held a new product launch in Beijing, attracting many industry elites..."
+        },
+        {
+            "title": "Strategic Partnership with Leading Companies",
+            "date": "2024-01-05",
+            "summary": "The company signed strategic cooperation agreements with several well-known enterprises..."
+        }
+    ],
+    "contact": [
+        {
+            "icon": "fas fa-phone",
+            "label": "Phone",
+            "value": "400-123-4567"
+        },
+        {
+            "icon": "fas fa-envelope",
+            "label": "Email",
+            "value": "info@company.com"
+        },
+        {
+            "icon": "fas fa-map-marker-alt",
+            "label": "Address",
+            "value": "123 Main Street, Beijing, China"
+        }
+    ]
+}

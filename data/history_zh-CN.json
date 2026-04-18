@@ -1,0 +1,97 @@
+{
+    "siteTitle": "企业大事记 - 企业网站",
+    "companyName": "企业名称",
+    "navHome": "首页",
+    "navProducts": "产品/服务",
+    "navActivities": "专题活动",
+    "navHistory": "企业大事记",
+    "navFeedback": "反馈招聘",
+    "copyright": "© 2024 企业名称。All rights reserved.",
+    "chatTitle": "联系客服",
+    "categories": [
+        {
+            "id": "milestone",
+            "name": "里程碑",
+            "icon": "fas fa-flag",
+            "events": [
+                {
+                    "id": "e1",
+                    "type": "image",
+                    "title": "公司成立",
+                    "content": "公司在北京中关村正式成立，注册资本 1000 万元，专注于软件开发和技术服务。",
+                    "author": "创始人",
+                    "date": "2015-01-15",
+                    "tags": "成立",
+                    "media": "https://via.placeholder.com/400x250/23a6d5/ffffff?text=Founded"
+                },
+                {
+                    "id": "e2",
+                    "type": "gallery",
+                    "title": "获得 A 轮融资",
+                    "content": "公司成功获得知名投资机构 A 轮投资 5000 万元，用于产品研发和市场拓展。",
+                    "author": "CEO",
+                    "date": "2018-06-20",
+                    "tags": "融资",
+                    "media": [
+                        "https://via.placeholder.com/400x250/e73c7e/ffffff?text=Funding+1",
+                        "https://via.placeholder.com/400x250/23d5ab/ffffff?text=Funding+2"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "product",
+            "name": "产品发布",
+            "icon": "fas fa-box",
+            "events": [
+                {
+                    "id": "e3",
+                    "type": "video",
+                    "title": "ERP 系统 1.0 发布",
+                    "content": "公司首款企业管理系统正式发布，填补了国内市场空白。",
+                    "author": "产品总监",
+                    "date": "2016-09-10",
+                    "tags": "产品",
+                    "media": "https://www.w3schools.com/html/mov_bbb.mp4"
+                },
+                {
+                    "id": "e4",
+                    "type": "audio",
+                    "title": "CRM 系统上线",
+                    "content": "客户关系管理系统正式上线，帮助企业管理客户信息和销售流程。",
+                    "author": "技术总监",
+                    "date": "2019-03-15",
+                    "tags": "产品",
+                    "media": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                }
+            ]
+        },
+        {
+            "id": "honor",
+            "name": "荣誉资质",
+            "icon": "fas fa-trophy",
+            "events": [
+                {
+                    "id": "e5",
+                    "type": "text",
+                    "title": "高新技术企业认定",
+                    "content": "公司通过国家高新技术企业认定，标志着公司技术创新能力获得国家认可。",
+                    "author": "行政部",
+                    "date": "2020-12-01",
+                    "tags": "荣誉",
+                    "media": null
+                },
+                {
+                    "id": "e6",
+                    "type": "image",
+                    "title": "行业创新大奖",
+                    "content": "公司荣获年度行业创新大奖，产品在技术创新和应用方面获得专家一致好评。",
+                    "author": "市场部",
+                    "date": "2023-11-20",
+                    "tags": "奖项",
+                    "media": "https://via.placeholder.com/400x250/ee7752/ffffff?text=Award"
+                }
+            ]
+        }
+    ]
+}
