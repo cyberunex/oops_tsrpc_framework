@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理 - 菜单设置</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../admin/css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 统一 Header (从 dashboard.html 复制) -->
+    <header class="navbar navbar-expand-lg admin-header glass-effect sticky-top">
+        <div class="container-fluid">
+            <button class="btn btn-link text-decoration-none me-3" id="sidebarToggle">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-shield-alt fa-lg text-primary me-2"></i>
+                <span class="fw-bold" data-i18n="adminPanel">后台管理系统</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html" data-i18n="dashboard">仪表盘</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu.html" data-i18n="menuSettings">菜单设置</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html" data-i18n="products">产品管理</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html" data-i18n="history">大事记</a></li>
+                    <li class="nav-item"><a class="nav-link" href="activities.html" data-i18n="activities">专题活动</a></li>
+                    <li class="nav-item"><a class="nav-link" href="guestbook.html" data-i18n="guestbook">留言管理</a></li>
+                    <li class="nav-item"><a class="nav-link" href="widgets.html" data-i18n="widgets">小组件</a></li>
+                    <li class="nav-item"><a class="nav-link" href="settings.html" data-i18n="settings">网站设置</a></li>
+                    <li class="nav-item"><a class="nav-link" href="statistics.html" data-i18n="statistics">统计图表</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <select class="form-select form-select-sm" id="languageSwitcher" style="width: auto;">
+                        <option value="zh">中文</option>
+                        <option value="en">English</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                    <button class="btn btn-sm btn-outline-secondary" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="dropdown">
+                        <button class="btn btn-sm d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown">
+                            <img src="https://ui-avatars.com/api/?name=Admin" alt="User" class="rounded-circle" width="30" height="30" id="userAvatar">
+                            <span id="userName">Admin</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end glass-effect">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i><span data-i18n="profile">个人资料</span></a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-envelope me-2"></i><span data-i18n="messages">消息</span></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()"><i class="fas fa-sign-out-alt me-2"></i><span data-i18n="logout">退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 侧边栏 -->
+    <aside class="sidebar glass-effect bg-body-tertiary" id="sidebar">
+        <div class="p-3">
+            <h6 class="text-uppercase text-muted small fw-bold mb-3" data-i18n="navigation">导航菜单</h6>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt me-2"></i><span data-i18n="dashboard">仪表盘</span></a></li>
+                <li class="nav-item"><a class="nav-link active" href="menu.html"><i class="fas fa-bars me-2"></i><span data-i18n="menuSettings">菜单设置</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html"><i class="fas fa-box me-2"></i><span data-i18n="products">产品管理</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="history.html"><i class="fas fa-history me-2"></i><span data-i18n="history">大事记</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="activities.html"><i class="fas fa-calendar-alt me-2"></i><span data-i18n="activities">专题活动</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="guestbook.html"><i class="fas fa-comments me-2"></i><span data-i18n="guestbook">留言管理</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="widgets.html"><i class="fas fa-th me-2"></i><span data-i18n="widgets">小组件</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="settings.html"><i class="fas fa-cog me-2"></i><span data-i18n="settings">网站设置</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="statistics.html"><i class="fas fa-chart-line me-2"></i><span data-i18n="statistics">统计图表</span></a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content" id="mainContent">
+        <div class="container-fluid">
+            <div class="row g-4">
+                <!-- 左侧：树形菜单 -->
+                <div class="col-lg-5">
+                    <div class="card glass-effect">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0" data-i18n="menuTree">菜单树</h5>
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addMenuModal">
+                                <i class="fas fa-plus me-1"></i><span data-i18n="addRootMenu">添加根菜单</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div id="menuTree" class="list-group list-group-flush">
+                                <!-- 动态加载菜单树 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：编辑表单 -->
+                <div class="col-lg-7">
+                    <div class="card glass-effect">
+                        <div class="card-header">
+                            <h5 class="mb-0" data-i18n="editMenu">编辑菜单</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="menuForm">
+                                <input type="hidden" id="menuId">
+                                <input type="hidden" id="menuParentId" value="0">
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" data-i18n="parentMenu">父菜单</label>
+                                    <select class="form-select" id="menuParentSelect">
+                                        <option value="0">无（根菜单）</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" data-i18n="menuName">菜单名称</label>
+                                    <input type="text" class="form-control" id="menuName" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" data-i18n="menuLink">链接地址</label>
+                                    <input type="text" class="form-control" id="menuLink" placeholder="例如：index.html">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" data-i18n="menuIcon">图标类名</label>
+                                    <input type="text" class="form-control" id="menuIcon" placeholder="例如：fas fa-home">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" data-i18n="menuDescription">描述</label>
+                                    <textarea class="form-control" id="menuDescription" rows="3"></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" data-i18n="menuStatus">状态</label>
+                                    <select class="form-select" id="menuStatus">
+                                        <option value="1" data-i18n="active">启用</option>
+                                        <option value="0" data-i18n="inactive">停用</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" data-i18n="sortOrder">排序</label>
+                                    <input type="number" class="form-control" id="menuSort" value="0">
+                                </div>
+                                
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save me-1"></i><span data-i18n="save">保存</span>
+                                    </button>
+                                    <button type="reset" class="btn btn-secondary">
+                                        <i class="fas fa-undo me-1"></i><span data-i18n="reset">重置</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 添加根菜单 Modal -->
+    <div class="modal fade" id="addMenuModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content glass-effect">
+                <div class="modal-header">
+                    <h5 class="modal-title" data-i18n="addRootMenu">添加根菜单</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addRootMenuForm">
+                        <div class="mb-3">
+                            <label class="form-label" data-i18n="menuName">菜单名称</label>
+                            <input type="text" class="form-control" id="rootMenuName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" data-i18n="menuLink">链接地址</label>
+                            <input type="text" class="form-control" id="rootMenuLink">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" data-i18n="menuIcon">图标类名</label>
+                            <input type="text" class="form-control" id="rootMenuIcon">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="cancel">取消</button>
+                    <button type="button" class="btn btn-primary" id="confirmAddRootMenu" data-i18n="confirm">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5 py-3 glass-effect">
+        <div class="container-fluid text-center">
+            <p class="text-muted mb-0">&copy; 2024 <span data-i18n="companyName">公司名称</span>. <span data-i18n="allRightsReserved">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/admin-auth.js"></script>
+    <script src="../js/admin-menu.js"></script>
+</body>
+</html>

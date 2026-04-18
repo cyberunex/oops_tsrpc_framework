@@ -1,0 +1,224 @@
+/* 后台管理通用样式 */
+.admin-header {
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    height: calc(100vh - 56px);
+    width: 250px;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar.offcanvas-start {
+    transform: translateX(-100%);
+}
+
+.sidebar.show {
+    transform: translateX(0);
+}
+
+.main-content {
+    margin-left: 250px;
+    margin-top: 56px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+    margin-left: 0;
+}
+
+.nav-link.active {
+    background: rgba(13, 110, 253, 0.1);
+    border-left: 3px solid #0d6efd;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.show {
+        transform: translateX(0);
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* 树形菜单样式 */
+.menu-tree-item {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.menu-tree-item:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.menu-tree-children {
+    margin-left: 20px;
+    border-left: 2px dashed #dee2e6;
+    padding-left: 10px;
+}
+
+/* DataTables 样式增强 */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: linear-gradient(to bottom, #0d6efd 0%, #0b5ed7 100%) !important;
+    color: white !important;
+}
+
+/* UEditor 容器 */
+.ueditor-container {
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+[data-bs-theme="dark"] .ueditor-container {
+    border-color: #495057;
+}
+
+/* 时间轴样式 */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, #0d6efd 0, #0d6efd 10px, transparent 10px, transparent 20px);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item:nth-child(odd) {
+    text-align: right;
+    padding-right: 50%;
+}
+
+.timeline-item:nth-child(even) {
+    text-align: left;
+    padding-left: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    background: #0d6efd;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #0d6efd;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -8px;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -8px;
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        text-align: left;
+        padding-left: 50px;
+        padding-right: 0;
+    }
+    
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 12px;
+        right: auto;
+    }
+}
+
+/* 毛玻璃效果增强 */
+.glass-effect {
+    background: rgba(var(--bs-body-bg-rgb), 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+[data-bs-theme="dark"] .glass-effect {
+    background: rgba(30, 30, 40, 0.7);
+}
+
+/* 卡片悬停效果 */
+.card.glass-effect {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card.glass-effect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* 表单控件增强 */
+.form-control:focus,
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* 表格行详情 */
+.table-row-details {
+    background: rgba(13, 110, 253, 0.05);
+    border-left: 3px solid #0d6efd;
+}
+
+/* 统计卡片动画 */
+.stat-card {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 加载动画 */
+.loading-spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid rgba(13, 110, 253, 0.3);
+    border-radius: 50%;
+    border-top-color: #0d6efd;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
