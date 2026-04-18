@@ -1,0 +1,11 @@
+# Examples 1:
+# Project with only source/config files - no build artifacts, dependencies, or temp files
+
+# Example 2 (Project with artifacts):
+# Input contained build artifacts like *.pyc, dist/, .env.local, .vscode/ which would trigger ignores
+# But in this case, the input only has HTML template files being added
+
+# Since only HTML template files (.html) are being added and no build artifacts,
+# dependencies, or temp files are present in the changes, keep .gitignore empty
+
+# No ignore rules needed for this project state

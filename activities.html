@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="siteTitle">专题活动 - 企业网站</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="animated-bg min-vh-100 d-flex flex-column">
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-building fa-2x me-2"></i>
+                <span data-i18n="companyName">企业名称</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="navHome">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html" data-i18n="navProducts">产品/服务</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="activities.html" data-i18n="navActivities">专题活动</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html" data-i18n="navHistory">企业大事记</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html" data-i18n="navFeedback">反馈招聘</a></li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="dropdown">
+                    <button class="btn glass-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end glass-effect">
+                        <li><a class="dropdown-item" href="#" data-lang="zh-CN">中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="en-US">English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="ja-JP">日本語</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1" style="margin-top: 76px;">
+        <section class="container my-4">
+            <ul class="nav nav-pills justify-content-center mb-4" id="activityTabs" role="tablist"></ul>
+            <div class="row g-4" id="activitiesList"></div>
+            <div id="paginationContainer" class="mt-4"></div>
+        </section>
+    </main>
+
+    <!-- Activity Detail Modal -->
+    <div class="modal fade" id="activityModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="activityModalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="activityModalBody"></div>
+                <div class="modal-footer" id="activityModalFooter"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="glass-footer py-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"><p class="mb-0" data-i18n="copyright">© 2024 企业名称。All rights reserved.</p></div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-decoration-none me-3"><i class="fab fa-weixin fa-lg"></i></a>
+                    <a href="#" class="text-decoration-none me-3"><i class="fab fa-weibo fa-lg"></i></a>
+                    <a href="#" class="text-decoration-none me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="#" class="text-decoration-none"><i class="fab fa-twitter fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <button class="btn btn-primary floating-btn glass-btn" type="button" data-bs-toggle="modal" data-bs-target="#chatModal"><i class="fas fa-comments"></i></button>
+        <button class="btn btn-secondary floating-btn glass-btn" type="button" data-action="toggle-theme"><i class="fas fa-moon" data-theme-icon></i></button>
+        <button class="btn btn-success floating-btn glass-btn" type="button" data-action="scroll-top" style="display: none;"><i class="fas fa-arrow-up"></i></button>
+    </div>
+
+    <div class="modal fade chat-modal" id="chatModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" data-i18n="chatTitle">联系客服</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" id="chatInput" placeholder="输入消息...">
+                        <button class="btn btn-primary" type="button" data-action="send-message"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const lang = localStorage.getItem('language') || 'zh-CN';
+        const data = await DataLoader.loadPageData('activities', lang);
+        
+        if (data && data.categories) {
+            const activityTabs = document.getElementById('activityTabs');
+            activityTabs.innerHTML = data.categories.map((cat, index) => `
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link glass-pill ${index === 0 ? 'active' : ''}" 
+                            data-bs-toggle="pill" data-bs-target="#act-cat-${cat.id}" 
+                            type="button" role="tab">
+                        <i class="${cat.icon} me-2"></i>${cat.name}
+                    </button>
+                </li>
+            `).join('');
+
+            const activitiesList = document.getElementById('activitiesList');
+            activitiesList.innerHTML = data.categories.map((cat, index) => `
+                <div class="tab-pane fade ${index === 0 ? 'show active' : ''}" id="act-cat-${cat.id}" role="tabpanel">
+                    <div class="row g-4">
+                        ${cat.activities.map(activity => `
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card glass-card h-100">
+                                    <img src="${activity.image}" class="card-img-top" alt="${activity.title}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${activity.title}</h5>
+                                        <p class="card-text">${activity.summary}</p>
+                                        <small class="text-muted"><i class="far fa-calendar-alt me-1"></i>${activity.date}</small>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn btn-sm btn-primary" onclick="showActivityDetail('${activity.id}')">${data.viewDetailBtn || '查看详情'}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            window.showActivityDetail = function(id) {
+                const allActivities = data.categories.flatMap(c => c.activities);
+                const activity = allActivities.find(a => a.id === id);
+                if (activity) {
+                    document.getElementById('activityModalTitle').textContent = activity.title;
+                    document.getElementById('activityModalBody').innerHTML = `
+                        <img src="${activity.image}" class="img-fluid rounded mb-3 w-100" alt="${activity.title}">
+                        <p>${activity.content}</p>
+                    `;
+                    document.getElementById('activityModalFooter').innerHTML = activity.attachments ? `
+                        <div class="w-100">
+                            <strong>${data.attachments || '附件'}:</strong>
+                            ${activity.attachments.map(att => `<a href="${att.url}" class="btn btn-sm btn-outline-primary ms-2"><i class="fas fa-download me-1"></i>${att.name}</a>`).join('')}
+                        </div>
+                    ` : '';
+                    new bootstrap.Modal(document.getElementById('activityModal')).show();
+                }
+            };
+        }
+    });
+    </script>
+</body>
+</html>
