@@ -1,65 +1,11 @@
-```
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-dist/
-build/
-target/
+# Examples 1:
+# Project with only source/config files - no build artifacts, dependencies, or temp files
 
-# Dependencies
-.venv/
-venv/
-node_modules/
-.mypy_cache/
-.pytest_cache/
-.coverage
-coverage/
-htmlcov/
+# Example 2 (Project with artifacts):
+# Input contained build artifacts like *.pyc, dist/, .env.local, .vscode/ which would trigger ignores
+# But in this case, the input only has HTML template files being added
 
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-*.swo
+# Since only HTML template files (.html) are being added and no build artifacts,
+# dependencies, or temp files are present in the changes, keep .gitignore empty
 
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editors
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
-```
+# No ignore rules needed for this project state
